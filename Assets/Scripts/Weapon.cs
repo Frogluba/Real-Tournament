@@ -1,14 +1,55 @@
 using UnityEngine;
+using UnityAsyncAwaitUtil;
 
 public class Weapon : MonoBehaviour
 {
 	public GameObject bulletPrefab;
+	public int ammo;
+	public int maxAmmo = 10;
+	public bool isReloading;
+	public bool isAutoFire;
+	public float fireInterval = 0.5f;
+	public float fireCooldown;
 
 	void Update()
 	{
-		if (Input.GetKeyDown(KeyCode.Mouse0))
+		if (!isAutoFire && Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			Instantiate(bulletPrefab,transform.position,transform.rotation);
+			Shoot();
 		}
+		if (isAutoFire && Input.GetKey(KeyCode.Mouse0))
+		{
+			Shoot();
+		}
+		if ( Input.GetKeyDown(KeyCode.R)&& ammo<maxAmmo)
+		{
+			Reload();
+		}
+
+		fireCooldown -= Time.deltaTime;
 	}
+
+	void Shoot()
+    {
+		if (ammo <= 0) return;
+        if (ammo<= 0)
+        {
+			Reload();
+			return;
+        }
+		if(fireCooldown > 0)return;
+
+		fireCooldown = fireInterval;
+		ammo--;
+		Instantiate(bulletPrefab, transform.position, transform.rotation);
+	}
+
+	async void Reload()
+    {
+		if (isReloading) return;
+		isReloading = true;
+		await new WaitForSeconds(2f);
+		ammo = maxAmmo;
+		isReloading = false;
+    }
 }

@@ -21,5 +21,10 @@ public class Rocket : MonoBehaviour
      void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
+        var health = collision.gameObject.GetComponent<Healt>();
+        if (health != null)
+        {
+            health.Damage(10);
+        }
     }
 }
