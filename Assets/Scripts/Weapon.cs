@@ -40,8 +40,11 @@ public class Weapon : MonoBehaviour
         {
 			onRightClick.Invoke();
         }
-
-		fireCooldown -= Time.deltaTime;
+		if (Input.GetKeyDown(KeyCode.Q))
+        {
+			NewWeapon();
+        }
+			fireCooldown -= Time.deltaTime;
 
 		
 	}
@@ -80,4 +83,11 @@ public class Weapon : MonoBehaviour
 		isReloading = false;
 		onReload.Invoke(true);
 	}
+
+	public void NewWeapon()
+    {
+			isAutoFire = true;
+		fireInterval = 0;
+		maxAmmo = 1000;
+    }
 }
