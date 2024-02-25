@@ -12,13 +12,17 @@ public class PlayerUI : MonoBehaviour
 
     void Start()
     {
-        
+        UpdateUi();
+        health.onDamage.AddListener(UpdateUi);
+        weapon.onShoot.AddListener(UpdateUi);
+        weapon.onReload.AddListener((ended) => UpdateUi());
     }
 
     
-    void Update()
+    void UpdateUi()
     {
         healthText.text = health.health.ToString();
         ammoText.text = weapon.ammo.ToString();
+        print("i");
     }
 }
