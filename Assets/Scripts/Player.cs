@@ -6,6 +6,8 @@ public class Player : MonoBehaviour
 {
     Healt health;
     public Weapon weapon;
+    public LayerMask weaponLayer;
+    public GameObject equipText;
 
     private void Start()
     {
@@ -15,6 +17,17 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
+        var cam = Camera.main.transform;
+        var collided = Physics.Raycast(cam.position, cam.forward, out var hit,2f,weaponLayer);
+        equipText.SetActive(collided);
+
+        if (collided && Input.GetKeyDown(KeyCode.E))
+        {
+            weapon = hit.transform.GetComponent<Weapon>();
+        }
+
+
+        if (weapon == null) return;
         if (!weapon.isAutoFire && Input.GetKeyDown(KeyCode.Mouse0))
         {
             weapon.Shoot();
