@@ -23,6 +23,6 @@ public class PlayerUI : MonoBehaviour
     {
         healthText.text = health.health.ToString();
         ammoText.text = weapon.ammo.ToString();
-        print("i");
+       
     }
 }

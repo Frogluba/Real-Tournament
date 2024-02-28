@@ -1175,7 +1175,8 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls: []
-  damageEffect: {fileID: 0}
+  damageEffect: {fileID: 3103088711355686143, guid: 4aa81df2361f1da469bdc18e4f5438d1,
+    type: 3}
   deathEffect: {fileID: 1833522456418796761, guid: c05d496581613594d848096a20ffe527,
     type: 3}
 --- !u!1 &1377436191
