@@ -59,6 +59,7 @@ public class Weapon : MonoBehaviour
 		ammo = maxAmmo;
 		isReloading = false;
 		onReload.Invoke(true);
+
 	}
 
 	

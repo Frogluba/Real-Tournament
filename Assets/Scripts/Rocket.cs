@@ -8,6 +8,9 @@ public class Rocket : MonoBehaviour
     public GameObject explosionPrefab;
     public GameObject hitPrefab;
     public int bounces;
+    public AudioClip hitSound;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +26,7 @@ public class Rocket : MonoBehaviour
 
      void OnCollisionEnter(Collision collision)
     {
+       
         //Destroy(gameObject);
         if (bounces == 0)
         {
@@ -34,10 +38,16 @@ public class Rocket : MonoBehaviour
         }
         if (!collision.gameObject.CompareTag("Enemy"))
         {
+            
             var obj = Instantiate(hitPrefab, transform.position, transform.rotation);
             obj.transform.forward = collision.contacts[0].normal;
             obj.transform.position = collision.contacts[0].point + transform.forward * 0.05f;
-           
+        }
+        else
+        {
+            var source = GetComponent<AudioSource>();
+            source.clip = hitSound;
+            source.Play();
         }
         bounces--;
 
