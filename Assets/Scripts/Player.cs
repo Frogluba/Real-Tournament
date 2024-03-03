@@ -24,12 +24,15 @@ public class Player : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) )
         {
-            if(weapon==null)
+            if(weapon==null && collided)
             {
+                print(weapon + " " + hit.transform);
                 weapon = hit.transform.GetComponent<Weapon>();
+                
                 Equip(weapon);
+
             }
             else
             {
