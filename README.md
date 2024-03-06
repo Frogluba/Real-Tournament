@@ -5,7 +5,7 @@
 
 
 ##CONTROLS
-###Use "W" button to move forwards
+### Use "W" button to move forwards
 ###Use "S" button to move backwards
 ###Use "D" button to move right
 ###Use "A" button to move left
