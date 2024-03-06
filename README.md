@@ -20,3 +20,6 @@
 
 
 ![Screenshot (5)](https://github.com/Frogluba/Real-Tournament/assets/146203655/c1e0a128-98fc-4174-98ce-314c43d3316c)
+
+## Link to the game:)
+### https://play.unity.com/mg/other/webgl-builds-394797
