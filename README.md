@@ -14,3 +14,9 @@
 
 ## ABOUT THE GAME
 ### Shot zombies to blow of some steam:)
+
+
+![Screenshot (7)](https://github.com/Frogluba/Real-Tournament/assets/146203655/6e2830cc-2428-4d7b-b960-d5e5374f9719)
+
+
+![Screenshot (5)](https://github.com/Frogluba/Real-Tournament/assets/146203655/c1e0a128-98fc-4174-98ce-314c43d3316c)
