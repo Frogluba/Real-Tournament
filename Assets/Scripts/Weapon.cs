@@ -18,7 +18,9 @@ public class Weapon : MonoBehaviour
 	public float fireCooldown;
 	public float recoilAngel;
 	public int bulletsPerShot = 1;
-	
+	public AudioClip reloadSound;
+
+
 
 	void Update()
 	{
@@ -54,6 +56,9 @@ public class Weapon : MonoBehaviour
 		if (isReloading) return;
 		isReloading = true;
 		onReload.Invoke(false);
+		var source = GetComponent<AudioSource>();
+		source.clip = reloadSound;
+		source.Play();
 
 		await new WaitForSeconds(2f);
 		ammo = maxAmmo;
